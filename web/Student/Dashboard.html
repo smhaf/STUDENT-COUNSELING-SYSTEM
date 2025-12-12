@@ -93,6 +93,7 @@
             text-align: center;
         }
         .pending { background-color: #f39c12; } 
+        .accepted { background-color: #27ae60; } 
         .canceled { background-color: #e74c3c; } 
         .completed { background-color: #3498db; } 
         
@@ -113,18 +114,20 @@
         .delete-btn:hover { background-color: #c0392b; }
 
         /* Column width adjustments for better fit in the narrower table */
-        .date-time-col { width: 170px; } 
-        .status-col { width: 120px; }
+        .issue-col {widows: 160px }
+        .counselor-col {width: 170px; }
+        .date-time-col { width: 200px; } 
+        .status-col { width: 180px; }
         .actions-col { width: 150px; }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="brand">SCAS Student</div>
+        <div class="brand">Student Counseling Appointment System</div>
         <div class="nav-links">
             <a href="#" class="active">Dashboard</a>
-            <a href="Appointment.html">Book Session</a>
-            <a href="login.html">Logout</a>
+            <a href="Appointment.html">Appointment</a>
+            <a href="../login.html">Logout</a>
         </div>
     </nav>
     
@@ -140,21 +143,19 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Client Name</th>
+                    <th class="issue-col">Issue</th>
                     <th class="date-time-col">Date & Time</th>
-                    <th>Counselor</th>
+                    <th class = "counselor-col">Counselor</th>
                     <th class="status-col">Status</th>
                     <th class="actions-col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>001</td>
-                    <td>Ahmad</td>
+                    <td>Depression</td>
                     <td>2025-12-15 10:00 AM</td>
                     <td>Ali</td>
-                    <td><span class="status-badge completed">Completed</span></td>
+                    <td><span class="status-badge accepted">Accepted</span></td>
                     <td>
                         <button class="action-btn edit-btn" onclick="alert('Editing Appointment 001')">Edit</button>
                         <button class="action-btn delete-btn" onclick="alert('Deleting Appointment 001')">Cancel</button>
@@ -162,8 +163,7 @@
                 </tr>
                 
                 <tr>
-                    <td>002</td>
-                    <td>Siti</td>
+                    <td>Stress</td>
                     <td>2025-12-16 02:30 PM</td>
                     <td>Alicia</td>
                     <td><span class="status-badge pending">Pending</span></td>
@@ -174,8 +174,7 @@
                 </tr>
                 
                 <tr>
-                    <td>003</td>
-                    <td>Aina</td>
+                    <td>Break up</td>
                     <td>2025-12-12 09:00 AM</td>
                     <td>Ali</td>
                     <td><span class="status-badge completed">Completed</span></td>
@@ -186,8 +185,7 @@
                 </tr>
                 
                 <tr>
-                    <td>004</td>
-                    <td>Hafizzudin</td>
+                    <td>Sadness</td>
                     <td>2025-12-17 11:00 AM</td>
                     <td>Alicia</td>
                     <td><span class="status-badge canceled">Canceled</span></td>
