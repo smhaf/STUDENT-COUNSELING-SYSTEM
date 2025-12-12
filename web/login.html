@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Counseling Login</title>
+    <style>
+        /* ... (Your existing CSS is here, no change needed) ... */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        #login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        #login-btn:hover {
+            background-color: #0056b3;
+        }
+        #register-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #00d157;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        #register-btn:hover {
+            background-color: #00c04a;
+        }
+        .separator {
+            border-bottom: 1px solid #ddd;
+            margin: 20px 0;
+        }
+    </style>
+    <script>
+        function handleLogin() {
+            const stud = "teststudent";
+            const stud_pass = "password123";
+            const councelor = "testcouncelor";
+            const councelor_pass = "password123";
+
+            
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+
+            if (usernameInput === stud && passwordInput === stud_pass) {
+                alert("Login successful! Welcome, " + stud + ".");
+                
+                window.location.href = 'student.html'; 
+                return false; 
+            }
+            else if (usernameInput === councelor && passwordInput === councelor_pass)
+            {
+                alert("Login successful! Welcome, " + councelor + ".");
+                
+                window.location.href = 'councelor.html'; 
+                return false;
+            }
+            else
+            {
+                alert(" Invalid Student ID/Email or Password. Try 'teststudent' and 'password123' for student / 'testcouncelor' and 'password123' for councelor.");
+                return false; 
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Student Counseling Login</h2>
+
+        <form onsubmit="return handleLogin()" method="POST">
+            <div class="form-group">
+                <label for="username">Student ID / Email</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" id="login-btn">Log In</button>
+            
+            <div class="separator"></div>
+
+            <a href="register.html" id="register-btn">Register new account</a>
+            
+        </form>
+    </div>
+
+</body>
+</html>
