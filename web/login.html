@@ -83,10 +83,10 @@
     </style>
     <script>
         function handleLogin() {
-            const stud = "a";
-            const stud_pass = "a";
-            const councelor = "testcouncelor";
-            const councelor_pass = "password123";
+            const stud = "stud";
+            const stud_pass = "studpass";
+            const counselor = "counselor";
+            const counselor_pass = "counselorpass";
 
             
             const usernameInput = document.getElementById('username').value;
@@ -98,15 +98,15 @@
                 window.location.href = 'Student/Dashboard.html'; 
                 return false; 
             }
-            else if (usernameInput === councelor && passwordInput === councelor_pass)
+            else if (usernameInput === counselor && passwordInput === counselor_pass)
             {
-                alert("Login successful! Welcome, " + councelor + ".");
-                window.location.href = 'Counselor/councelor.html';
+                alert("Login successful! Welcome, " + counselor + ".");
+                window.location.href = 'Counselor/counselor.html';
                 return false;
             }
             else
             {
-                alert(" Invalid Student ID/Email or Password. Try 'teststudent' and 'password123' for student / 'testcouncelor' and 'password123' for councelor.");
+                alert(" Invalid Student ID/Email or Password. Try 'stud' and 'studpass' for student / 'counselor' and 'counselorpass' for counselor.");
                 return false; 
             }
         }
