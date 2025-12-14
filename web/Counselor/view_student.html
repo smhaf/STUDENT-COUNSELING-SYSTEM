@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student Details</title>
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 0 20px 40px 20px; 
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto; 
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin: 0 -20px 20px -20px; 
+        }
+        .brand { font-weight: bold; font-size: 1.2rem; color: #2c3e50; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: #666; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #4a90e2; font-weight: 600; }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .student-info {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .info-block {
+            flex: 1 1 45%; 
+            margin-right: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+        }
+        .info-block strong {
+            display: block;
+            color: #2c3e50;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+        }
+        .info-block span {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .appointment-history {
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background-color: white;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #9b59b6; 
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .status-badge { 
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+        .pending { background-color: #f39c12; } 
+        .accepted { background-color: #27ae60; } 
+        .canceled { background-color: #e74c3c; } 
+        .completed { background-color: #3498db; } 
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">Student Counseling Appointment System</div>
+        <div class="nav-links">
+            <a href="counselor.html">Dashboard</a>
+            <a href="/login.html">Logout</a>
+        </div>
+    </nav>
+    
+    <div class="container"> 
+        <h1>Student Details: Ahmad</h1>
+
+        <div class="student-info">
+            <div class="info-block">
+                <strong>Student ID</strong>
+                <span>2025138315</span>
+            </div>
+            <div class="info-block">
+                <strong>Email Address</strong>
+                <span>ahmad@student.edu</span>
+            </div>
+            <div class="info-block">
+                <strong>Phone Number</strong>
+                <span>+60 12-345 6789</span>
+            </div>
+            <div class="info-block">
+                <strong>Registration Date</strong>
+                <span>2025-01-10</span>
+            </div>
+        </div>
+        
+        <h2>Appointment History</h2>
+
+        <div class="appointment-history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Issue/Reason</th>
+                        <th>Status</th>
+                        <th>Notes (Counselor's View)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-12-15 10:00 AM</td>
+                        <td>Dealing with feelings of depression.</td>
+                        <td><span class="status-badge accepted">Accepted</span></td>
+                        <td>Scheduled for next week. Follow up on course load.</td>
+                    </tr>
+                    <tr>
+                        <td>2025-12-12 09:00 AM</td>
+                        <td>Break up trauma.</td>
+                        <td><span class="status-badge completed">Completed</span></td>
+                        <td>Student felt better after session. Advised self-care techniques.</td>
+                    </tr>
+                    <tr>
+                        <td>2025-11-05 02:00 PM</td>
+                        <td>Initial stress consultation.</td>
+                        <td><span class="status-badge completed">Completed</span></td>
+                        <td>Referred to campus wellness resources.</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-20 03:30 PM</td>
+                        <td>Cancelled by student.</td>
+                        <td><span class="status-badge canceled">Canceled</span></td>
+                        <td>Canceled due to scheduling conflict.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="margin-top: 20px; text-align: right;">
+            <a href="counselor.html" style="text-decoration: none; padding: 10px 15px; background-color: #e7e7e7; color: #333; border-radius: 4px;">← Back to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>

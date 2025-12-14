@@ -9,22 +9,19 @@
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Adjusted font stack */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
         }
-        /* Minimalist CSS for the Dashboard */
+        
         body {
             background-color: #f4f4f9;
             color: #333;
-            /* Added padding for general page spacing */
             padding: 0 20px 40px 20px; 
         }
 
-        /* --- NEW: Container to control overall width --- */
         .container {
-            max-width: 900px; /* Set a maximum width for the content */
-            margin: 20px auto; /* Center the container horizontally, add vertical margin */
+            max-width: 900px; 
+            margin: 20px auto; 
         }
-        /* ----------------------------------------------- */
 
         .navbar {
             background-color: #fff;
@@ -33,7 +30,6 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            /* Ensure the navbar stays full-width */
             margin: 0 -20px 20px -20px; 
         }
         .brand { font-weight: bold; font-size: 1.2rem; color: #2c3e50; }
@@ -42,7 +38,7 @@
         
         h1 {
             color: #2c3e50;
-            border-bottom: 2px solid #ddd; /* Added a light border */
+            border-bottom: 2px solid #ddd; 
             padding-bottom: 10px;
         }
         .controls {
@@ -97,7 +93,7 @@
         .canceled { background-color: #e74c3c; } 
         .completed { background-color: #3498db; } 
         
-        /* Action Buttons */
+   
         .action-btn {
             padding: 5px 8px;
             margin-right: 5px;
@@ -106,14 +102,14 @@
             cursor: pointer;
             font-size: 14px;
             color: white;
-            white-space: nowrap; /* Prevent buttons from wrapping */
+            white-space: nowrap; 
         }
         .edit-btn { background-color: #3498db; }
         .edit-btn:hover { background-color: #2980b9; }
         .delete-btn { background-color: #e74c3c; }
         .delete-btn:hover { background-color: #c0392b; }
 
-        /* Column width adjustments for better fit in the narrower table */
+
         .issue-col {widows: 160px }
         .counselor-col {width: 170px; }
         .date-time-col { width: 200px; } 
@@ -123,7 +119,7 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="brand">Counselor Appointment Management System</div>
+        <div class="brand">Student Counseling Appointment System</div>
         <div class="nav-links">
             <a href="#" class="active">Dashboard</a>
             <a href="Appointment.html">Appointment</a>
