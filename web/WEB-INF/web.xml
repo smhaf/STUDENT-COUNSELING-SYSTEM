@@ -8,6 +8,26 @@
         <servlet-name>servlettest</servlet-name>
         <servlet-class>servlettest</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardController</servlet-name>
+        <servlet-class>DashboardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AppointmentController</servlet-name>
+        <servlet-class>AppointmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>LogoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProfileServlet</servlet-name>
         <url-pattern>/ProfileServlet</url-pattern>
@@ -15,6 +35,26 @@
     <servlet-mapping>
         <servlet-name>servlettest</servlet-name>
         <url-pattern>/servlettest</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/RegisterController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardController</servlet-name>
+        <url-pattern>/DashboardController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AppointmentController</servlet-name>
+        <url-pattern>/AppointmentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
