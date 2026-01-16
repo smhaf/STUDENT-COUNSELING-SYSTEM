@@ -28,7 +28,7 @@
             <p class="error"><%= msg %></p>
         <% } %>
 
-        <form action="LoginController" method="POST">
+        <form action="LoginServlet" method="POST">
             <label>User ID (Student ID or Counselor ID)</label>
             <input type="text" name="userid" style="width:100%; padding: 10px;" required placeholder="e.g., 202412345">
             

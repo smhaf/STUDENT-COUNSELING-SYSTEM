@@ -8,7 +8,6 @@ import dao.CounselorDAO;
 import dao.StudentDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,8 +15,7 @@ import javax.servlet.http.HttpSession;
 import model.Counselor;
 import model.Student;
 
-@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
-public class LoginController extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +38,7 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("role", "student");
                 
                 // Redirect to the Dashboard Controller (not the JSP directly)
-                response.sendRedirect("DashboardController");
+                response.sendRedirect("DashboardServlet");
             } else {
                 request.setAttribute("errorMsg", "Invalid Student ID or Password.");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -55,7 +53,7 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("currentUserName", counselor.getCounselorName());
                 session.setAttribute("role", "counselor");
 
-                response.sendRedirect("DashboardController");
+                response.sendRedirect("DashboardServlet");
             } else {
                 request.setAttribute("errorMsg", "Invalid Counselor Credentials.");
                 request.getRequestDispatcher("login.jsp").forward(request, response);

@@ -32,7 +32,7 @@
     <nav>
         <a href="student_dashboard.jsp">Dashboard</a> | 
         <a href="make_appointment.jsp">Book Appointment</a> | 
-        <a href="LogoutController">Logout</a>
+        <a href="LogoutServlet">Logout</a>
     </nav>
 
     <h3>Your Appointments</h3>

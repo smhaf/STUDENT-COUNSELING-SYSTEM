@@ -17,7 +17,7 @@
 <body>
     <h2>Book a Counseling Session</h2>
     
-    <form action="AppointmentController" method="POST">
+    <form action="AppointmentServlet" method="POST">
         <input type="hidden" name="action" value="create">
         <input type="hidden" name="studentID" value="<%= session.getAttribute("userSession") %>">
 

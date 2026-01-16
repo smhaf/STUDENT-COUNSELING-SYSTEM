@@ -11,6 +11,7 @@ public class Student implements Serializable {
     private String studentPhone;
     private String course;
     private String studentPassword;
+    private String matrixNumber;
 
     // 2. No-Argument Constructor
     public Student() {
@@ -34,4 +35,7 @@ public class Student implements Serializable {
 
     public String getStudentPassword() { return studentPassword; }
     public void setStudentPassword(String studentPassword) { this.studentPassword = studentPassword; }
+    
+    public String getStudentMatrixNumber() { return matrixNumber; }
+    public void setStudentMatrixNumber(String studentMatrixNumber) { this.matrixNumber = matrixNumber; }
 }

@@ -32,7 +32,7 @@
 <body>
     <div class="navbar">
         <strong>Counselor: <%= session.getAttribute("currentUserName") %></strong>
-        <a href="LogoutController">Logout</a>
+        <a href="LogoutServlet">Logout</a>
     </div>
 
     <h2>🔔 Pending Appointments</h2>
@@ -63,9 +63,9 @@
                 <td>Exam Stress</td>
                 <td>2025-12-16 02:30 PM</td>
                 <td>
-                    <a href="AppointmentController?action=update&id=1&status=Accepted" class="btn btn-accept">Accept</a>
-                    <a href="AppointmentController?action=update&id=1&status=Rejected" class="btn btn-reject">Reject</a>
-                    <a href="CounselorController?action=viewStudent&id=2025138315" class="btn btn-view">View Student</a>
+                    <a href="AppointmentServlet?action=update&id=1&status=Accepted" class="btn btn-accept">Accept</a>
+                    <a href="AppointmentServlet?action=update&id=1&status=Rejected" class="btn btn-reject">Reject</a>
+                    <a href="CounselorServlet?action=viewStudent&id=2025138315" class="btn btn-view">View Student</a>
                 </td>
             </tr>
         </tbody>

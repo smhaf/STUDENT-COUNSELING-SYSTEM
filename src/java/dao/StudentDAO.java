@@ -11,7 +11,7 @@ public class StudentDAO {
 
     // 1. REGISTER STUDENT
     public boolean registerStudent(Student student) {
-        String sql = "INSERT INTO Student (studentID, studentName, studentEmail, studentPhone, course, studentPassword) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Student (matrixNumber, studentName, studentEmail, studentPhone, course, studentPassword) VALUES (?, ?, ?, ?, ?, ?)";
         
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -35,7 +35,7 @@ public class StudentDAO {
     // 2. AUTHENTICATE STUDENT (LOGIN)
     public Student authenticateUser(String studentID, String password) {
         Student student = null;
-        String sql = "SELECT * FROM Student WHERE studentID = ? AND studentPassword = ?";
+        String sql = "SELECT * FROM Student WHERE matrixNumber = ? AND studentPassword = ?";
         
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {

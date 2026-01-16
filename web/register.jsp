@@ -18,7 +18,7 @@
     <div class="form-container">
         <h2>Create Student Account</h2>
         
-        <form action="RegisterController" method="POST">
+        <form action="RegisterServlet" method="POST">
             
             <label>Student ID (PK)</label>
             <input type="text" name="studentID" required placeholder="2025xxxxxx">
