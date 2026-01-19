@@ -16,7 +16,7 @@ public class StudentDAO {
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             
-            ps.setString(1, student.getStudentMatrixNumber());
+            ps.setString(1, student.getMatrixNumber());
             ps.setString(2, student.getStudentName());
             ps.setString(3, student.getStudentEmail());
             ps.setString(4, student.getStudentPhone());
@@ -57,5 +57,29 @@ public class StudentDAO {
             e.printStackTrace();
         }
         return student; // Returns null if login failed, or the Student object if successful
+    }
+    // 3. RETREIVE STUDENT INFORMATION(STUDENT DETAIL ON COUNCELOR)
+    public Student getStudentById(String studentID) {
+        Student student = null;
+        String sql = "SELECT * FROM STUDENT WHERE STUDENTID = ?";
+
+        try (Connection con = DBConnection.createConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, studentID);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                student = new Student();
+                student.setStudentID(rs.getString("STUDENTID"));
+                student.setStudentName(rs.getString("STUDENTNAME"));
+                student.setStudentEmail(rs.getString("STUDENTEMAIL"));
+                student.setCourse(rs.getString("COURSE"));
+                student.setStudentPhone(rs.getString("STUDENTPHONE"));
+                student.setMatrixNumber(rs.getString("MATRIXNUMBER"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return student;
     }
 }

@@ -24,6 +24,10 @@
         <servlet-name>CancelAppointmentServlet</servlet-name>
         <servlet-class>controller.CancelAppointmentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CounselorServlet</servlet-name>
+        <servlet-class>controller.CounselorServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>CancelAppointmentServlet</servlet-name>
         <url-pattern>/CancelAppointmentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CounselorServlet</servlet-name>
+        <url-pattern>/CounselorServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

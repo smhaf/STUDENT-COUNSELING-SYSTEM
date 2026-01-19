@@ -36,4 +36,14 @@ public class Appointment implements Serializable {
 
     public String getCounselorID() { return counselorID; }
     public void setCounselorID(String counselorID) { this.counselorID = counselorID; }
+    
+    // purpose for display student name and matrix number on counselor page
+    private String studentName;
+    private String matrixNumber;
+
+    // Getters and Setters
+    public String getStudentName() { return studentName; }
+    public void setStudentName(String studentName) { this.studentName = studentName; }
+    public String getMatrixNumber() { return matrixNumber; }
+    public void setMatrixNumber(String matrixNumber) { this.matrixNumber = matrixNumber; }
 }

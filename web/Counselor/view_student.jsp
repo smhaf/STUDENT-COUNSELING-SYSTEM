@@ -3,6 +3,9 @@
     Purpose: Display specific student profile and history to Counselor.
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Student"%>
+<%@page import="model.Appointment"%>
+<%@page import="java.util.List"%>
 <%
     // Security Check
     if (session.getAttribute("userSession") == null || !session.getAttribute("role").equals("counselor")) {
@@ -21,28 +24,39 @@
     </style>
 </head>
 <body>
+    <%
+        Student stud = (Student) request.getAttribute("selectedStudent");
+        List<Appointment> history = (List<Appointment>) request.getAttribute("appointmentHistory");
+
+        // Redirect if direct access without going through Servlet
+        if (stud == null) {
+            response.sendRedirect("../DashboardServlet");
+            return;
+        }
+    %>
+
     <div class="profile-card">
-        <a href="counselor_dashboard.jsp">← Back to Dashboard</a>
+        <a href="<%= request.getContextPath() %>/DashboardServlet">← Back to Dashboard</a>
+
         <hr>
-        <%-- Data would be populated from a StudentBean passed by the Controller --%>
-        <h2>Student Profile: Alex Smith</h2>
-        
+        <h2>Student Profile: <%= stud.getStudentName() %></h2>
+
         <div class="info-grid">
             <div class="info-item">
-                <strong>Student ID:</strong><br>
-                <span>2025112233</span>
+                <strong>Matrix Number:</strong><br>
+                <span><%= stud.getMatrixNumber() %></span>
             </div>
             <div class="info-item">
                 <strong>Email:</strong><br>
-                <span>alex.smith@student.edu</span>
+                <span><%= stud.getStudentEmail() %></span>
             </div>
             <div class="info-item">
                 <strong>Course:</strong><br>
-                <span>CS240</span>
+                <span><%= stud.getCourse() %></span>
             </div>
             <div class="info-item">
                 <strong>Phone:</strong><br>
-                <span>+60123456789</span>
+                <span><%= stud.getStudentPhone() %></span>
             </div>
         </div>
 
@@ -53,11 +67,21 @@
                 <th>Issue</th>
                 <th>Status</th>
             </tr>
-            <tr>
-                <td>2025-11-05</td>
-                <td>Initial stress consultation</td>
-                <td>Completed</td>
-            </tr>
+            <% 
+                if (history != null && !history.isEmpty()) {
+                    for(Appointment a : history) { 
+            %>
+                <tr>
+                    <td><%= a.getAppointmentDate() %></td>
+                    <td><%= a.getAppointmentIssue() %></td>
+                    <td><%= a.getStatus() %></td>
+                </tr>
+            <% 
+                    }
+                } else { 
+            %>
+                <tr><td colspan="3">No previous history found.</td></tr>
+            <% } %>
         </table>
     </div>
 </body>

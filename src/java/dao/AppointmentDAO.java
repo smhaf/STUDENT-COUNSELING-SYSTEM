@@ -62,20 +62,29 @@ public class AppointmentDAO {
     // 3. READ ALL PENDING APPOINTMENTS (For Counselor Dashboard)
     public List<Appointment> getPendingAppointments() {
         List<Appointment> list = new ArrayList<>();
-        String sql = "SELECT * FROM Appointment WHERE Status = 'Pending'";
-        
+        // SQL JOIN to get student details along with the appointment
+        String sql = "SELECT a.*, s.STUDENTNAME, s.MATRIXNUMBER " +
+                     "FROM APPOINTMENT a " +
+                     "JOIN STUDENT s ON a.STUDENTID = s.STUDENTID " +
+                     "WHERE a.STATUS = 'Pending'";
+
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-            
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Appointment app = new Appointment();
-                app.setAppointmentID(rs.getInt("appointmentID"));
-                app.setAppointmentIssue(rs.getString("appointmentIssue"));
-                app.setAppointmentDate(rs.getString("appointmentDate"));
-                app.setAppointmentTime(rs.getString("appointmentTime"));
-                app.setStatus(rs.getString("Status"));
-                app.setStudentID(rs.getString("studentID"));
+                app.setAppointmentID(rs.getInt("APPOINTMENTID"));
+                app.setAppointmentIssue(rs.getString("APPOINTMENTISSUE"));
+                app.setAppointmentDate(rs.getString("APPOINTMENTDATE"));
+                app.setAppointmentTime(rs.getString("APPOINTMENTTIME"));
+                app.setStatus(rs.getString("STATUS"));
+                app.setStudentID(rs.getString("STUDENTID"));
+
+                // Set the new joined data
+                app.setStudentName(rs.getString("STUDENTNAME"));
+                app.setMatrixNumber(rs.getString("MATRIXNUMBER"));
+
                 list.add(app);
             }
         } catch (SQLException e) {

@@ -3,6 +3,7 @@
     Purpose: Main management interface for Counselors.
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Appointment"%>
 <%@page import="java.util.List"%>
 <%
     // 1. SESSION CHECK (Security)
@@ -32,6 +33,7 @@
 <body>
     <div class="navbar">
         <strong>Counselor: <%= session.getAttribute("currentUserName") %></strong>
+        <a href="Councelor/make_appointment.jsp">Record Appointment</a> | 
         <a href="LogoutServlet">Logout</a>
     </div>
 
@@ -39,7 +41,8 @@
     <table>
         <thead>
             <tr>
-                <th>Student ID</th>
+                <th>Student ID(matix)</th>
+                <th>Student name</th>
                 <th>Issue</th>
                 <th>Date & Time</th>
                 <th>Action</th>
@@ -48,26 +51,32 @@
         <tbody>
             <%-- Data retrieved from Request Attribute set by Controller --%>
             <% 
-                List<Object> pending = (List<Object>) request.getAttribute("pendingApps");
+                List<Appointment> pending = (List<Appointment>) request.getAttribute("pendingApps");
                 if (pending != null && !pending.isEmpty()) {
-                    for(Object app : pending) { 
+                    for(Appointment app : pending) { 
                         // Implementation of appointment data would go here
+            %>            
+            <tr>
+                <td><%= app.getMatrixNumber() %></td> 
+                <td><%= app.getStudentName() %></td>
+                <td><%= app.getAppointmentIssue() %></td>
+                <td><%= app.getAppointmentDate() %> at <%= app.getAppointmentTime() %></td>
+                <td>
+                    <a href="AppointmentServlet?action=update&id=<%= app.getAppointmentID() %>&status=Accepted" 
+                       class="btn btn-accept">Accept</a>
+                    <a href="AppointmentServlet?action=update&id=<%= app.getAppointmentID() %>&status=Rejected" 
+                       class="btn btn-reject">Reject</a>
+                    <a href="CounselorServlet?action=viewStudent&id=<%= app.getStudentID() %>" 
+                       class="btn btn-view">View Student</a>
+                </td>
+            </tr>           
+                        
+            <%             
                     }
                 } else { 
             %>
-            <tr><td colspan="4">No pending requests.</td></tr>
+            <tr><td colspan="5">No pending requests.</td></tr>
             <% } %>
-            <%-- Example Static Row for Storyboard functionality --%>
-            <tr>
-                <td>2025138315</td>
-                <td>Exam Stress</td>
-                <td>2025-12-16 02:30 PM</td>
-                <td>
-                    <a href="AppointmentServlet?action=update&id=1&status=Accepted" class="btn btn-accept">Accept</a>
-                    <a href="AppointmentServlet?action=update&id=1&status=Rejected" class="btn btn-reject">Reject</a>
-                    <a href="CounselorServlet?action=viewStudent&id=2025138315" class="btn btn-view">View Student</a>
-                </td>
-            </tr>
         </tbody>
     </table>
 </body>
