@@ -38,9 +38,10 @@ public class DashboardServlet extends HttpServlet {
             
             // 2. Attach data to request
             request.setAttribute("appointmentList", list);
+//            System.out.println(list)
             
             // 3. Forward to Student JSP
-            request.getRequestDispatcher("student_dashboard.jsp").forward(request, response);
+            request.getRequestDispatcher("Student/student_dashboard.jsp").forward(request, response);
 
         } else if ("counselor".equals(role)) {
             // 1. Fetch Pending Appointments for Counselor
@@ -50,7 +51,7 @@ public class DashboardServlet extends HttpServlet {
             request.setAttribute("pendingApps", pending);
             
             // 3. Forward to Counselor JSP
-            request.getRequestDispatcher("counselor_dashboard.jsp").forward(request, response);
+            request.getRequestDispatcher("Counselor/counselor_dashboard.jsp").forward(request, response);
         }
     }
 }

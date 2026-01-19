@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String userid = request.getParameter("userid");
+        String email = request.getParameter("email");
         String pass = request.getParameter("password");
         String role = request.getParameter("role");
 
@@ -29,8 +29,7 @@ public class LoginServlet extends HttpServlet {
         
         if ("student".equalsIgnoreCase(role)) {
             StudentDAO dao = new StudentDAO();
-            Student student = dao.authenticateUser(userid, pass);
-
+            Student student = dao.authenticateUser(email, pass);
             if (student != null) {
                 // Login Success: Set Session Attributes
                 session.setAttribute("userSession", student.getStudentID());
@@ -46,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 
         } else if ("counselor".equalsIgnoreCase(role)) {
             CounselorDAO dao = new CounselorDAO();
-            Counselor counselor = dao.authenticateCounselor(userid, pass);
+            Counselor counselor = dao.authenticateCounselor(email, pass);
 
             if (counselor != null) {
                 session.setAttribute("userSession", counselor.getCounselorID());

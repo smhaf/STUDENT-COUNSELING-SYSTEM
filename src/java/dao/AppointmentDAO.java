@@ -36,7 +36,7 @@ public class AppointmentDAO {
     public List<Appointment> getAppointmentsByStudent(String studentID) {
         List<Appointment> list = new ArrayList<>();
         String sql = "SELECT * FROM Appointment WHERE studentID = ?";
-        
+        System.out.println(studentID);
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             
@@ -98,6 +98,22 @@ public class AppointmentDAO {
             int i = ps.executeUpdate();
             return i > 0;
             
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    // 5. CANCEL APPOINTMENT (Student)
+    public boolean cancelAppointment(int appointmentID) {
+        String sql = "UPDATE Appointment SET Status = 'Cancel' WHERE appointmentID = ?";
+
+        try (Connection con = DBConnection.createConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, appointmentID);
+            return ps.executeUpdate() > 0;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

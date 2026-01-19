@@ -16,7 +16,7 @@ public class StudentDAO {
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             
-            ps.setString(1, student.getStudentID());
+            ps.setString(1, student.getStudentMatrixNumber());
             ps.setString(2, student.getStudentName());
             ps.setString(3, student.getStudentEmail());
             ps.setString(4, student.getStudentPhone());
@@ -33,14 +33,14 @@ public class StudentDAO {
     }
 
     // 2. AUTHENTICATE STUDENT (LOGIN)
-    public Student authenticateUser(String studentID, String password) {
+    public Student authenticateUser(String email, String password) {
         Student student = null;
-        String sql = "SELECT * FROM Student WHERE matrixNumber = ? AND studentPassword = ?";
+        String sql = "SELECT * FROM Student WHERE STUDENTEMAIL = ? AND studentPassword = ?";
         
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             
-            ps.setString(1, studentID);
+            ps.setString(1, email);
             ps.setString(2, password);
             
             ResultSet rs = ps.executeQuery();

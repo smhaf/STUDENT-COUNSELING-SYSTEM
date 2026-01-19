@@ -3,6 +3,7 @@
     Purpose: View for students to see their appointments.
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Appointment"%>
 <%@page import="java.util.List"%>
 <%-- Import your Model classes here once created, e.g., page import="model.Appointment" --%>
 
@@ -30,8 +31,8 @@
     <h1>Welcome, <%= session.getAttribute("currentUserName") %>!</h1>
     
     <nav>
-        <a href="student_dashboard.jsp">Dashboard</a> | 
-        <a href="make_appointment.jsp">Book Appointment</a> | 
+        <!--<a href="student_dashboard.jsp">Dashboard</a> |--> 
+        <a href="Student/make_appointment.jsp">Book Appointment</a> | 
         <a href="LogoutServlet">Logout</a>
     </nav>
 
@@ -52,16 +53,32 @@
                We will write the Controller later to fill this list.
             --%>
             <% 
-                List<Object> appointments = (List<Object>) request.getAttribute("appointmentList");
+                List<Appointment> appointments = (List<Appointment>) request.getAttribute("appointmentList");
+
                 if (appointments != null && !appointments.isEmpty()) {
-                    for(Object appt : appointments) {
+                    for(Appointment appt : appointments) {
             %>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Pending</td>
-                <td><a href="#">Cancel</a></td>
+                <td><%= appt.getAppointmentDate() %></td>
+                <td><%= appt.getAppointmentTime() %></td>
+                <td><%= appt.getAppointmentIssue() %> </td>
+                <td>
+                    <span class="status-badge <%= appt.getStatus().toLowerCase() %>">
+                        <%= appt.getStatus() %>
+                    </span>
+                </td>
+                <td>
+                    <% if (!"Cancel".equalsIgnoreCase(appt.getStatus())) { %>
+                        <a href="CancelAppointmentServlet?id=<%= appt.getAppointmentID() %>"
+                           onclick="return confirm('Are you sure you want to cancel this appointment?');">
+                            Cancel
+                        </a>
+                    <% } else { %>
+                        -
+                    <% } %>
+                </td>
+
+
             </tr>
             <% 
                     } 

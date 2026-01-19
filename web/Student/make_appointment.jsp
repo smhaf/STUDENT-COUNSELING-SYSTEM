@@ -17,11 +17,13 @@
 <body>
     <h2>Book a Counseling Session</h2>
     
-    <form action="AppointmentServlet" method="POST">
-        <input type="hidden" name="action" value="create">
+    <form action="<%= request.getContextPath() %>/AppointmentServlet" method="POST">
         <input type="hidden" name="studentID" value="<%= session.getAttribute("userSession") %>">
-
-        <label>Date:</label>
+        <script>
+            console.log('user',<%= session.getAttribute("userSession") %>);
+        </script>
+        
+        <label>Date:s</label>
         <input type="date" name="appointmentDate" required><br><br>
 
         <label>Time:</label>
@@ -34,6 +36,6 @@
     </form>
     
     <br>
-    <a href="student_dashboard.jsp">Cancel</a>
+    <a href="<%= request.getContextPath() %>/DashboardServlet">Cancel</a>
 </body>
 </html>

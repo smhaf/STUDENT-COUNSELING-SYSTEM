@@ -17,32 +17,33 @@ public class AppointmentServlet extends HttpServlet {
 
     // Handle Creation (Form Submission)
     @Override
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String action = request.getParameter("action");
+
+//        String action = request.getParameter("action");
         AppointmentDAO dao = new AppointmentDAO();
+//            System.out.println("action="+action);
 
-        if ("create".equals(action)) {
-            // From make_appointment.jsp
-            String issue = request.getParameter("appointmentIssue");
-            String date = request.getParameter("appointmentDate");
-            String time = request.getParameter("appointmentTime");
-            String studentID = request.getParameter("studentID");
+        // From make_appointment.jsp
+        String issue = request.getParameter("appointmentIssue");
+        String date = request.getParameter("appointmentDate");
+        String time = request.getParameter("appointmentTime");
+        String studentID = request.getParameter("studentID");
 
-            Appointment app = new Appointment();
-            app.setAppointmentIssue(issue);
-            app.setAppointmentDate(date);
-            app.setAppointmentTime(time);
-            app.setStudentID(studentID);
+        System.out.println("Servlet test="+issue+date+time+studentID);
+        Appointment app = new Appointment();
+        app.setAppointmentIssue(issue);
+        app.setAppointmentDate(date);
+        app.setAppointmentTime(time);
+        app.setStudentID(studentID);
 
-            dao.addAppointment(app);
-            
-            // Redirect back to Dashboard Controller to reload the list
-            response.sendRedirect("DashboardController");
-        }
+        dao.addAppointment(app);
+
+        // Redirect back to Dashboard Controller to reload the list
+        response.sendRedirect("DashboardServlet");
     }
-
+    
     // Handle Status Updates (Links/Buttons)
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -60,7 +61,7 @@ public class AppointmentServlet extends HttpServlet {
             AppointmentDAO dao = new AppointmentDAO();
             dao.updateStatus(appID, status, counselorID);
 
-            response.sendRedirect("DashboardController");
+            response.sendRedirect("DashboardServlet");
         }
     }
 }

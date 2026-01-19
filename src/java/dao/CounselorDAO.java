@@ -9,14 +9,14 @@ import util.DBConnection;
 
 public class CounselorDAO {
 
-    public Counselor authenticateCounselor(String counselorID, String password) {
+    public Counselor authenticateCounselor(String email, String password) {
         Counselor counselor = null;
-        String sql = "SELECT * FROM Counselor WHERE counselorID = ? AND counselorPassword = ?";
+        String sql = "SELECT * FROM Counselor WHERE email = ? AND counselorPassword = ?";
         
         try (Connection con = DBConnection.createConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             
-            ps.setString(1, counselorID);
+            ps.setString(1, email);
             ps.setString(2, password);
             
             ResultSet rs = ps.executeQuery();

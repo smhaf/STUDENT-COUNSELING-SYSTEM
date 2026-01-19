@@ -37,5 +37,5 @@ public class Student implements Serializable {
     public void setStudentPassword(String studentPassword) { this.studentPassword = studentPassword; }
     
     public String getStudentMatrixNumber() { return matrixNumber; }
-    public void setStudentMatrixNumber(String studentMatrixNumber) { this.matrixNumber = matrixNumber; }
+    public void setStudentMatrixNumber(String studentMatrixNumber) { matrixNumber = studentMatrixNumber; }
 }

@@ -29,8 +29,8 @@
         <% } %>
 
         <form action="LoginServlet" method="POST">
-            <label>User ID (Student ID or Counselor ID)</label>
-            <input type="text" name="userid" style="width:100%; padding: 10px;" required placeholder="e.g., 202412345">
+            <label>User Email (Student Email or Counselor Email)</label>
+            <input type="email" name="email" style="width:100%; padding: 10px;" required placeholder="e.g., 202412345@gmail.com">
             
             <label>Password</label>
             <input type="password" name="password" style="width:100%; padding: 10px;" required>
