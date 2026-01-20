@@ -69,7 +69,7 @@
         <input type="hidden" name="studentID" value="<%= student.getStudentID() %>">
 
         <div class="form-group">
-            <label>Matrix Number (Read-only)</label>
+            <label>Matrix Number</label>
             <input type="text" value="<%= student.getMatrixNumber() %>" readonly>
         </div>
 
@@ -90,11 +90,7 @@
 
         <div class="form-group">
             <label>Course</label>
-            <select name="course">
-                <option value="Computer Science" <%= "Computer Science".equals(student.getCourse()) ? "selected" : "" %>>Computer Science</option>
-                <option value="Information Technology" <%= "Information Technology".equals(student.getCourse()) ? "selected" : "" %>>Information Technology</option>
-                <option value="Engineering" <%= "Engineering".equals(student.getCourse()) ? "selected" : "" %>>Engineering</option>
-            </select>
+             <input type="text" name="course" value="<%= student.getCourse() %>" required>
         </div>
 
         <div style="margin-top: 20px;">
