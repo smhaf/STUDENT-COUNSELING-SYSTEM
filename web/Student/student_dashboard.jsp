@@ -33,7 +33,8 @@
     <nav>
         <!--<a href="student_dashboard.jsp">Dashboard</a> |--> 
         <a href="Student/make_appointment.jsp">Book Appointment</a> | 
-        <a href="LogoutServlet">Logout</a>
+        <a href="LogoutServlet">Logout</a> |
+       <a href="Student/edit_profile.jsp">Edit Profile</a>
     </nav>
 
     <h3>Your Appointments</h3>

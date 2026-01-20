@@ -15,6 +15,9 @@
         input { width: 100%; padding: 10px; margin: 10px 0; }
         button { width: 100%; padding: 10px; background-color: #3498db; color: white; border: none; }
         .error { color: red; font-size: 0.9em; }
+        /* Radio Button Styling */
+        .role-selection { margin: 15px 0; display: flex; justify-content: space-around; background: #f9f9f9; padding: 10px; border-radius: 4px; }
+        .role-option { cursor: pointer; display: flex; align-items: center; gap: 5px; }
     </style>
 </head>
 <body>
@@ -36,10 +39,14 @@
             <input type="password" name="password" style="width:100%; padding: 10px;" required>
             
             <label>Role</label>
-            <select name="role" style="width:100%; padding: 10px; margin-bottom: 10px;">
-                <option value="student">Student</option>
-                <option value="counselor">Counselor</option>
-            </select>
+            <div class="role-selection">
+                <label class="role-option">
+                    <input type="radio" name="role" value="student" checked> Student
+                </label>
+                <label class="role-option">
+                    <input type="radio" name="role" value="counselor"> Counselor
+                </label>
+            </div>
 
             <button type="submit">Login</button>
         </form>

@@ -20,6 +20,7 @@ public class RegisterServlet extends HttpServlet {
         
         // 1. Retrieve parameters from JSP
         String studentID = request.getParameter("studentID");
+        String matrixNumber = request.getParameter("matrixNumber");
         String name = request.getParameter("studentName");
         String email = request.getParameter("studentEmail");
         String phone = request.getParameter("studentPhone");
@@ -29,6 +30,7 @@ public class RegisterServlet extends HttpServlet {
         // 2. Create the Bean
         Student student = new Student();
         student.setStudentID(studentID);
+        student.setMatrixNumber(matrixNumber);
         student.setStudentName(name);
         student.setStudentEmail(email);
         student.setStudentPhone(phone);

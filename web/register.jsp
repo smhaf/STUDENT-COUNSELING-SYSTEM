@@ -20,8 +20,8 @@
         
         <form action="RegisterServlet" method="POST">
             
-            <label>Student ID (PK)</label>
-            <input type="text" name="studentID" required placeholder="2025xxxxxx">
+            <label>Student ID</label>
+            <input type="text" name="matrixNumber" required placeholder="2025xxxxxx">
 
             <label>Full Name</label>
             <input type="text" name="studentName" required>
